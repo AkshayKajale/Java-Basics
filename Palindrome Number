@@ -1,0 +1,38 @@
+/*Problem Statement : Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.*/
+
+
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        
+        int temp = x;
+        int backup = x;
+        double reverse=0;
+        int count = 0,remainder;
+        
+        while(temp>0)
+        {
+            count++;
+            temp = temp/10;
+        }
+            
+        while(x > 0)
+        {            
+            remainder = x%10;    
+            reverse = reverse + remainder*Math.pow(10,count-1);
+            x = x/10;
+            count--;
+        }
+        
+        if(backup == reverse || backup == 0)
+        {
+            return true;    
+        }
+        else
+        {
+            return false;
+        }
+        
+        
+    }
+}
